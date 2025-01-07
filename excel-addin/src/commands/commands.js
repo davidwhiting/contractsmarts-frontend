@@ -18,7 +18,7 @@ function startValidate(event) {
 
   // Open the task pane
   Office.context.ui.displayDialogAsync(
-    "https://vatoloco.net/contractsmarts/taskpane.html",
+    "https://api.contractsmarts.ai/static/v1.0/taskpane.html",
     { height: 50, width: 30, displayInIframe: true },
     (asyncResult) => {
       if (asyncResult.status === Office.AsyncResultStatus.Failed) {
