@@ -1,1 +1,1 @@
-v0.1.0/dist/ -> addin/v0.9/
+v0.1.1/dist/ -> addin/v0.9/
