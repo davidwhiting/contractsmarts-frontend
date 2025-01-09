@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Task Pane</title>
+    <title>Validation Starting</title>
     <link rel="stylesheet" href="style.css">
     
     <!-- Office JavaScript API -->
@@ -29,18 +29,24 @@
         </a>
     </div>
 
-    <h2>Model Validate Results</h2>
+    <h2>Model Validate Processing...</h2>
+    <div class="status">
+    </div>
+
     <textarea id="displayTextArea" rows="5" style="width: 100%;" readonly>
-If you had previously run Model Validate, your results would appear here. 
+We are currently processing your request for an analysis
 
-For the initial processing, you will need to validate a few items before we start.
+If this is the initial run, it will take several minutes to complete
 
-Press the start validate button to begin.
+If this is an update, the time should be much shorter
+
+This page will update automatically
     </textarea>
 
-    <a href="startval.html" class="buttons">Start Validate</a>
-
-    <!-- Note: The script tag was missing its closing forward slash -->
-    <script src="taskpane.js"></script>
+    <script>
+        setTimeout(function() {
+            window.location.href = "../taskpane.html"; 
+        }, 10000); // Redirect after 10 seconds
+    </script>
 </body>
 </html>

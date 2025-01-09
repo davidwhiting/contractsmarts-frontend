@@ -42,32 +42,25 @@ excel-addin
 │           ├── Support-48.png
 │           ├── Support-64.png
 │           └── Support.svg
+├── dist
 ├── src
 │   ├── commands
 │   │   ├── commands.html
 │   │   └── commands.js
-│   ├── styles
-│   │   └── APP-WIDE_CSS_GO_HERE
 │   └── taskpane
-│       ├── align
-│       │   └── align.html
-│       ├── chat
-│       │   ├── chat.css
-│       │   └── chat.html
-│       ├── styles
-│       │   └── style.css
-│       ├── support
-│       │   └── support.html
-│       ├── validate
-│       │   └── startval.html
+│       ├── align.html
+│       ├── chat.css
+│       ├── chat.html
+│       ├── startval.html
+│       ├── style.css
+│       ├── support.html
 │       ├── taskpane.css
 │       ├── taskpane.html
-│       ├── taskpane.js
-│       └── taskpane_1.html
+│       └── taskpane.js
 ├── babel.config.json
 ├── manifest.xml
 ├── package-lock.json
 ├── package.json
 └── webpack.config.js
 
-19 directories, 52 files
+14 directories, 50 files
