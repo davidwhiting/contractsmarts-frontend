@@ -43,18 +43,93 @@ excel-addin
 │           ├── Support-64.png
 │           └── Support.svg
 ├── dist
+│   ├── assets
+│   │   └── images
+│   │       ├── assets
+│   │       │   └── images
+│   │       │       ├── document-chat
+│   │       │       │   └── documentChat.svg
+│   │       │       ├── model-align
+│   │       │       │   └── modelAlign.svg
+│   │       │       ├── model-validate
+│   │       │       │   └── modelValidate.svg
+│   │       │       └── support
+│   │       │           └── Support.svg
+│   │       ├── contractsmarts
+│   │       │   ├── contractsmarts-16.png
+│   │       │   ├── contractsmarts-32.png
+│   │       │   ├── contractsmarts-64.png
+│   │       │   └── contractsmarts.svg
+│   │       ├── default
+│   │       │   ├── icon-128.png
+│   │       │   ├── icon-16.png
+│   │       │   ├── icon-32.png
+│   │       │   ├── icon-64.png
+│   │       │   ├── icon-80.png
+│   │       │   └── logo-filled.png
+│   │       ├── document-chat
+│   │       │   ├── documentChat-16.png
+│   │       │   ├── documentChat-32.png
+│   │       │   ├── documentChat-48.png
+│   │       │   ├── documentChat-64.png
+│   │       │   └── documentChat.svg
+│   │       ├── model-align
+│   │       │   ├── modelAlign-16.png
+│   │       │   ├── modelAlign-32.png
+│   │       │   ├── modelAlign-48.png
+│   │       │   ├── modelAlign-64.png
+│   │       │   └── modelAlign.svg
+│   │       ├── model-manager
+│   │       │   ├── modelManager.svg
+│   │       │   ├── modelmanager-16.png
+│   │       │   ├── modelmanager-32.png
+│   │       │   └── modelmanager-64.png
+│   │       ├── model-validate
+│   │       │   ├── modelValidate-16.png
+│   │       │   ├── modelValidate-32.png
+│   │       │   ├── modelValidate-48.png
+│   │       │   ├── modelValidate-64.png
+│   │       │   └── modelValidate.svg
+│   │       └── support
+│   │           ├── Support-16.png
+│   │           ├── Support-32.png
+│   │           ├── Support-48.png
+│   │           ├── Support-64.png
+│   │           └── Support.svg
+│   ├── styles
+│   │   ├── chat.css
+│   │   ├── style.css
+│   │   └── taskpane.css
+│   ├── 09b9f4d377181f05f32f.js
+│   ├── 3b2f42c31cad5e6c8340.css
+│   ├── 72038951a562ea7dd9fb.css
+│   ├── align.html
+│   ├── chat.html
+│   ├── commands.c7269a4630bc7e3c7f92.js
+│   ├── commands.c7269a4630bc7e3c7f92.js.LICENSE.txt
+│   ├── commands.c7269a4630bc7e3c7f92.js.map
+│   ├── commands.html
+│   ├── manifest..xml
+│   ├── polyfill.730cc79bdb5d90eca548.js
+│   ├── polyfill.730cc79bdb5d90eca548.js.map
+│   ├── startval.html
+│   ├── support.html
+│   ├── taskpane.1e79eef531fc6334fdbd.js
+│   ├── taskpane.1e79eef531fc6334fdbd.js.map
+│   └── taskpane.html
 ├── src
 │   ├── commands
 │   │   ├── commands.html
 │   │   └── commands.js
+│   ├── styles
+│   │   ├── chat.css
+│   │   ├── style.css
+│   │   └── taskpane.css
 │   └── taskpane
 │       ├── align.html
-│       ├── chat.css
 │       ├── chat.html
 │       ├── startval.html
-│       ├── style.css
 │       ├── support.html
-│       ├── taskpane.css
 │       ├── taskpane.html
 │       └── taskpane.js
 ├── babel.config.json
@@ -63,4 +138,4 @@ excel-addin
 ├── package.json
 └── webpack.config.js
 
-14 directories, 50 files
+31 directories, 108 files

@@ -80,22 +80,22 @@ module.exports = async (env, options) => {
       // Feature pages
       new HtmlWebpackPlugin({
         filename: "align.html",
-        template: "./src/taskpane/align/align.html",
+        template: "./src/taskpane/align.html",
         chunks: ["polyfill", "taskpane"]
       }),
       new HtmlWebpackPlugin({
         filename: "chat.html",
-        template: "./src/taskpane/chat/chat.html",
+        template: "./src/taskpane/chat.html",
         chunks: ["polyfill", "taskpane"]
       }),
       new HtmlWebpackPlugin({
         filename: "support.html",
-        template: "./src/taskpane/support/support.html",
+        template: "./src/taskpane/support.html",
         chunks: ["polyfill", "taskpane"]
       }),
       new HtmlWebpackPlugin({
         filename: "startval.html",
-        template: "./src/taskpane/validate/startval.html",
+        template: "./src/taskpane/startval.html",
         chunks: ["polyfill", "taskpane"]
       }),
       new CopyWebpackPlugin({
