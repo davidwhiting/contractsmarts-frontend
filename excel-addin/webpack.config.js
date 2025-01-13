@@ -56,10 +56,10 @@ module.exports = async (env, options) => {
           use: ["style-loader", "css-loader"]
         },
         {
-          test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
+          test: /\.(png|jpe?g|gif|ico|svg)$/i,
           type: "asset/resource",
           generator: {
-            filename: "assets/images/[path][name][ext]"
+            filename: 'assets/images/[name][ext]' // This will flatten the structure
           }
         }
       ]
@@ -101,8 +101,11 @@ module.exports = async (env, options) => {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: "assets/images",
-            to: "assets/images",
+            from: "assets/images/**/*",
+            to({ context, absoluteFilename }) {
+              const baseName = path.basename(absoluteFilename);
+              return `assets/images/${baseName}`;
+            },
             globOptions: {
               ignore: ["**/.DS_Store"]
             }
@@ -113,7 +116,7 @@ module.exports = async (env, options) => {
           },
           {
             from: "manifest*.xml",
-            to: "[name].[ext]",
+            to: "[name][ext]",
             transform(content) {
               if (dev) {
                 return content;
