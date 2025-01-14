@@ -1,67 +1,31 @@
-excel-addin
-├── assets
-│   └── images
-│       ├── contractsmarts
-│       │   ├── contractsmarts-16.png
-│       │   ├── contractsmarts-32.png
-│       │   ├── contractsmarts-64.png
-│       │   └── contractsmarts.svg
-│       ├── default
-│       │   ├── icon-128.png
-│       │   ├── icon-16.png
-│       │   ├── icon-32.png
-│       │   ├── icon-64.png
-│       │   ├── icon-80.png
-│       │   └── logo-filled.png
-│       ├── document-chat
-│       │   ├── documentChat-16.png
-│       │   ├── documentChat-32.png
-│       │   ├── documentChat-48.png
-│       │   ├── documentChat-64.png
-│       │   └── documentChat.svg
-│       ├── model-align
-│       │   ├── modelAlign-16.png
-│       │   ├── modelAlign-32.png
-│       │   ├── modelAlign-48.png
-│       │   ├── modelAlign-64.png
-│       │   └── modelAlign.svg
-│       ├── model-manager
-│       │   ├── modelManager.svg
-│       │   ├── modelmanager-16.png
-│       │   ├── modelmanager-32.png
-│       │   └── modelmanager-64.png
-│       ├── model-validate
-│       │   ├── modelValidate-16.png
-│       │   ├── modelValidate-32.png
-│       │   ├── modelValidate-48.png
-│       │   ├── modelValidate-64.png
-│       │   └── modelValidate.svg
-│       └── support
-│           ├── Support-16.png
-│           ├── Support-32.png
-│           ├── Support-48.png
-│           ├── Support-64.png
-│           └── Support.svg
-├── dist
+excel-addin-fluent
+├── public
+│   ├── assets
+│   │   ├── icon-128.png
+│   │   ├── icon-16.png
+│   │   ├── icon-32.png
+│   │   ├── icon-64.png
+│   │   └── icon-80.png
+│   └── vite.svg
 ├── src
-│   ├── commands
-│   │   ├── commands.html
-│   │   └── commands.js
-│   ├── styles
-│   │   ├── chat.css
-│   │   ├── style.css
-│   │   └── taskpane.css
-│   └── taskpane
-│       ├── align.html
-│       ├── chat.html
-│       ├── startval.html
-│       ├── support.html
-│       ├── taskpane.html
-│       └── taskpane.js
-├── babel.config.json
+│   ├── assets
+│   │   └── react.svg
+│   ├── taskpane
+│   │   ├── Taskpane.tsx
+│   │   ├── main.tsx
+│   │   └── taskpane.html
+│   ├── App.css
+│   ├── index.css
+│   └── vite-env.d.ts
+├── README.md
+├── eslint.config.js
+├── index.html
 ├── manifest.xml
 ├── package-lock.json
 ├── package.json
-└── webpack.config.js
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 
-15 directories, 50 files
+6 directories, 23 files

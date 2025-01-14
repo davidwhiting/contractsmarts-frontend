@@ -7,5 +7,5 @@ build:
 	npm run build
 
 tree:
-	mv excel-addin/node_modules . ; tree --dirsfirst excel-addin > tree.txt; mv node_modules excel-addin
+	mv excel-addin-fluent/node_modules . ; tree --dirsfirst excel-addin-fluent > tree.txt; mv node_modules excel-addin-fluent
 
