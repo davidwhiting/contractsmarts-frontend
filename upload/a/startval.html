@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Starting</title>
+    <link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+	<div class="navbar">
+	  <a class="active" href="taskpane.html"><img src="https://api.contractsmarts.ai/static/a/images/modelValidate.svg"></img><div class="violet">Model Validate</div></a>
+	  <a href="align.html"><img src="https://api.contractsmarts.ai/static/a/images/modelAlign.svg"></img><div class="violet">Model Align</div></a>
+	  <a href="chat.html"><img src="https://api.contractsmarts.ai/static/a/images/documentChat.svg"></img><div class="violet">Document Chat</div></a>
+	  <a href="support.html"><img src="https://api.contractsmarts.ai/static/a/images/Support.svg"></img><div class="violet">Support</div></a>
+	</div>
+
+<h2>Model Validate Processing...</h2>
+<div class="status">
+
+</div>
+
+<textarea id="displayTextArea" rows="5" style="width: 100%;" readonly>
+We are currently processing your request for an analysis
+
+If this is the initial run, it will take several minutes to complete
+
+If this is an update, the time should be much shorter
+
+This page will update automatically
+
+</textarea>
+
+<script>
+    setTimeout(function() {
+        window.location.href = "https://api.contractsmarts.ai/static/a/taskpane.html"; 
+
+    }, 10000); // Redirect after 5 seconds (5000 milliseconds)
+</script>
+
+</body>
+</html>
