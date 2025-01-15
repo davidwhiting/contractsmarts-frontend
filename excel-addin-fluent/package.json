@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev-certs": "office-addin-dev-certs install --days 365",
-    "build": "tsc && vite build",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
     "preview": "vite preview",
     "start": "office-addin-debugging start manifest.xml",
     "stop": "office-addin-debugging stop manifest.xml",
@@ -21,7 +22,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "@types/office-js": "^1.0.454",
+    "@types/node": "^22.10.6",
+    "@types/office-js": "^1.0.455",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",

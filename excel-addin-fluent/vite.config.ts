@@ -1,6 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
+import { homedir } from 'os'
+import { readFileSync } from 'node:fs'
+
+// Resolve the home directory path
+const certPath = resolve(homedir(), '.office-addin-dev-certs')
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,8 +22,8 @@ export default defineConfig({
   server: {
     port: 3000,
     https: {
-      key:  fs.readFileSync("./.office-addin-dev-certs/localhost.key"),
-      cert: fs.readFileSync("./.office-addin-dev-certs/localhost.crt")
+      key: readFileSync(resolve(certPath, 'localhost.key')),
+      cert: readFileSync(resolve(certPath, 'localhost.crt'))
     },
     headers: {
       'Access-Control-Allow-Origin': '*'
