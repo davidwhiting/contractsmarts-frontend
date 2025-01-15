@@ -11,6 +11,12 @@ excel-addin-fluent
 │   ├── assets
 │   │   └── react.svg
 │   ├── taskpane
+│   │   ├── DocumentChat.tsx
+│   │   ├── MainMenu.tsx
+│   │   ├── ModelManager.tsx
+│   │   ├── ModelValidate.tsx
+│   │   ├── NavigationBar.tsx
+│   │   ├── Support.tsx
 │   │   ├── Taskpane.tsx
 │   │   ├── main.tsx
 │   │   └── taskpane.html
@@ -28,4 +34,4 @@ excel-addin-fluent
 ├── tsconfig.node.json
 └── vite.config.ts
 
-6 directories, 23 files
+6 directories, 29 files

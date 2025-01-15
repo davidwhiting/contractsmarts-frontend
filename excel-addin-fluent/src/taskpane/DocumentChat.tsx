@@ -100,7 +100,6 @@ export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => voi
   return (
     <FluentProvider theme={webLightTheme}>
       <div className={styles.container}>
-        <NavigationBar currentView="documentChat" onNavigate={onNavigate} />
         <Card className={styles.chatContainer}>
           {messages.map((message) => (
             <div key={message.id} className={styles.messageContainer}>

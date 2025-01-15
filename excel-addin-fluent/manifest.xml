@@ -8,15 +8,15 @@
   
   <Id>4228D1D1-D6D6-4509-89B1-2CD42B3C5D04</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Contoso</ProviderName>
+  <ProviderName>ContractSmarts</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Excel Add-in"/>
-  <Description DefaultValue="A modern Excel add-in using Fluent UI"/>
+  <DisplayName DefaultValue="ContractSmarts"/>
+  <Description DefaultValue="ContractSmarts Add-in"/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
-  <SupportUrl DefaultValue="https://www.contoso.com/help"/>
+  <SupportUrl DefaultValue="https://www.contractsmarts.ai/help"/>
   <AppDomains>
-    <AppDomain>https://www.contoso.com</AppDomain>
+    <AppDomain>https://www.contractsmarts.ai</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>

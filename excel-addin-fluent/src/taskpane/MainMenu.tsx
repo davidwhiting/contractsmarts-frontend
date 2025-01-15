@@ -39,7 +39,7 @@ export const MainMenu = ({ onNavigate }: MainMenuProps) => {
 
   return (
     <Card className={styles.container}>
-      <Title3>Excel Add-in</Title3>
+      <Title3>ContractSmarts</Title3>
       <Button 
         className={styles.menuButton}
         appearance="subtle"
