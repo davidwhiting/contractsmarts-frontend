@@ -62,7 +62,7 @@ interface Message {
   sender: 'user' | 'bot';
 }
 
-export const DocumentChat = () => {
+export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => void }) => {
   const styles = useStyles();
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
@@ -100,6 +100,7 @@ export const DocumentChat = () => {
   return (
     <FluentProvider theme={webLightTheme}>
       <div className={styles.container}>
+        <NavigationBar currentView="documentChat" onNavigate={onNavigate} />
         <Card className={styles.chatContainer}>
           {messages.map((message) => (
             <div key={message.id} className={styles.messageContainer}>
