@@ -1,4 +1,5 @@
-import { useState } from 'react';
+// DocumentChat.tsx
+import { useState, useEffect } from 'react';
 import {
   FluentProvider,
   webLightTheme,
@@ -9,9 +10,8 @@ import {
   shorthands,
   tokens,
   Text,
-  Textarea,  // Add this line
 } from '@fluentui/react-components';
-import { Send24Regular } from '@fluentui/react-icons';
+import { Send24Regular, OpenRegular } from '@fluentui/react-icons';
 import { NavigationBar } from './NavigationBar';
 
 const useStyles = makeStyles({
@@ -19,6 +19,13 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
+  },
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    ...shorthands.padding('8px', '16px'),
+    backgroundColor: tokens.colorNeutralBackground1,
   },
   chatContainer: {
     display: 'flex',
@@ -66,14 +73,34 @@ export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => voi
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [messageCounter, setMessageCounter] = useState(1);
+  const [popupWindow, setPopupWindow] = useState<Window | null>(null);
 
-  const handleSendMessage = () => {
-    if (!inputText.trim()) return;
+  useEffect(() => {
+    // Listen for messages from popup window
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data.type === 'REQUEST_MESSAGES') {
+        event.source?.postMessage({
+          type: 'UPDATE_MESSAGES',
+          messages
+        }, '*');
+      } else if (event.data.type === 'SEND_MESSAGE') {
+        handleSendMessage(event.data.message);
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, [messages]);
+
+  const handleSendMessage = (text: string) => {
+    if (!text.trim()) return;
 
     // Add user message
     const userMessage: Message = {
       id: Date.now(),
-      text: inputText,
+      text: text,
       sender: 'user',
     };
 
@@ -84,21 +111,58 @@ export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => voi
       sender: 'bot',
     };
 
-    setMessages([...messages, userMessage, botMessage]);
+    const newMessages = [...messages, userMessage, botMessage];
+    setMessages(newMessages);
     setMessageCounter(messageCounter + 1);
-    setInputText('');
+
+    // Update popup window if it exists
+    if (popupWindow && !popupWindow.closed) {
+      popupWindow.postMessage({
+        type: 'UPDATE_MESSAGES',
+        messages: newMessages
+      }, '*');
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage();
+      handleSendMessage(inputText);
+      setInputText('');
+    }
+  };
+
+  const openPopupWindow = () => {
+    const width = 800;
+    const height = 600;
+    const left = (window.screen.width - width) / 2;
+    const top = (window.screen.height - height) / 2;
+
+    const popup = window.open(
+      '/popup.html',
+      'DocumentChat',
+      `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
+    );
+
+    if (popup) {
+      setPopupWindow(popup);
+      popup.focus();
     }
   };
 
   return (
     <div className={styles.container}>
       <NavigationBar currentView="documentChat" onNavigate={onNavigate} />
+      <div className={styles.header}>
+        <Text size={500}>Document Chat</Text>
+        <Button
+          appearance="subtle"
+          icon={<OpenRegular />}
+          onClick={openPopupWindow}
+        >
+          Open in Window
+        </Button>
+      </div>
       <Card className={styles.chatContainer}>
         {messages.map((message) => (
           <div key={message.id} className={styles.messageContainer}>
@@ -123,7 +187,10 @@ export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => voi
         <Button
           appearance="primary"
           icon={<Send24Regular />}
-          onClick={handleSendMessage}
+          onClick={() => {
+            handleSendMessage(inputText);
+            setInputText('');
+          }}
         >
           Send
         </Button>

@@ -9,9 +9,9 @@ import {
   shorthands,
   tokens,
   Text,
-  Textarea,  // Add this line
+  TextArea,
 } from '@fluentui/react-components';
-import { Send24Regular } from '@fluentui/react-icons';
+import { Send24Regular, Delete24Regular } from '@fluentui/react-icons';
 import { NavigationBar } from './NavigationBar';
 
 const useStyles = makeStyles({
@@ -52,6 +52,10 @@ const useStyles = makeStyles({
   botMessage: {
     alignSelf: 'flex-start',
     backgroundColor: tokens.colorNeutralBackground4,
+  },
+  newChatButton: {
+    alignSelf: 'flex-end',
+    marginBottom: '12px',
   },
 });
 
@@ -96,39 +100,60 @@ export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => voi
     }
   };
 
+  const handleNewChat = () => {
+    setMessages([]);
+    setMessageCounter(1);
+    setInputText('');
+  };
+
   return (
-    <div className={styles.container}>
-      <NavigationBar currentView="documentChat" onNavigate={onNavigate} />
-      <Card className={styles.chatContainer}>
-        {messages.map((message) => (
-          <div key={message.id} className={styles.messageContainer}>
-            <div
-              className={`${styles.message} ${
-                message.sender === 'user' ? styles.userMessage : styles.botMessage
-              }`}
-            >
-              <Text>{message.text}</Text>
+    <FluentProvider theme={webLightTheme}>
+      <div className={styles.container}>
+        <NavigationBar currentView="documentChat" onNavigate={onNavigate} />
+        <div style={{ padding: '12px' }}>
+          <Button 
+            className={styles.newChatButton}
+            appearance="subtle"
+            icon={<Delete24Regular />}
+            onClick={handleNewChat}
+          >
+            New Chat
+          </Button>
+        </div>
+        <Card className={styles.chatContainer}>
+          {messages.map((message) => (
+            <div key={message.id} className={styles.messageContainer}>
+              <div
+                className={`${styles.message} ${
+                  message.sender === 'user' ? styles.userMessage : styles.botMessage
+                }`}
+              >
+                <Text>{message.text}</Text>
+              </div>
             </div>
-          </div>
-        ))}
-      </Card>
-      <div className={styles.inputContainer}>
-        <Input
-          value={inputText}
-          onChange={(e, data) => setInputText(data.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Type your message..."
-          style={{ flexGrow: 1 }}
-        />
-        <Button
-          appearance="primary"
-          icon={<Send24Regular />}
-          onClick={handleSendMessage}
-        >
-          Send
-        </Button>
+          ))}
+        </Card>
+        <div className={styles.inputContainer}>
+          <TextArea
+            value={inputText}
+            onChange={(e, data) => setInputText(data.value)}
+            onKeyDown={handleKeyPress}
+            placeholder="Type your message..."
+            style={{ flexGrow: 1 }}
+            resize="vertical"
+            autoResize
+            maxHeight={150} // approximately 6 lines
+          />
+          <Button
+            appearance="primary"
+            icon={<Send24Regular />}
+            onClick={handleSendMessage}
+          >
+            Send
+          </Button>
+        </div>
       </div>
-    </div>
+    </FluentProvider>
   );
 };
 

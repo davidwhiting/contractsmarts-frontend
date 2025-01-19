@@ -9,7 +9,6 @@ import {
   shorthands,
   tokens,
   Text,
-  Textarea,  // Add this line
 } from '@fluentui/react-components';
 import { Send24Regular } from '@fluentui/react-icons';
 import { NavigationBar } from './NavigationBar';

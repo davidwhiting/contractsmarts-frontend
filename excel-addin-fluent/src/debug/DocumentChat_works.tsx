@@ -9,16 +9,17 @@ import {
   shorthands,
   tokens,
   Text,
-  Textarea,  // Add this line
 } from '@fluentui/react-components';
 import { Send24Regular } from '@fluentui/react-icons';
-import { NavigationBar } from './NavigationBar';
 
 const useStyles = makeStyles({
   container: {
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
+    maxWidth: '800px',
+    margin: '0 auto',
+    ...shorthands.gap('12px'),
   },
   chatContainer: {
     display: 'flex',
@@ -97,38 +98,39 @@ export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => voi
   };
 
   return (
-    <div className={styles.container}>
-      <NavigationBar currentView="documentChat" onNavigate={onNavigate} />
-      <Card className={styles.chatContainer}>
-        {messages.map((message) => (
-          <div key={message.id} className={styles.messageContainer}>
-            <div
-              className={`${styles.message} ${
-                message.sender === 'user' ? styles.userMessage : styles.botMessage
-              }`}
-            >
-              <Text>{message.text}</Text>
+    <FluentProvider theme={webLightTheme}>
+      <div className={styles.container}>
+        <Card className={styles.chatContainer}>
+          {messages.map((message) => (
+            <div key={message.id} className={styles.messageContainer}>
+              <div
+                className={`${styles.message} ${
+                  message.sender === 'user' ? styles.userMessage : styles.botMessage
+                }`}
+              >
+                <Text>{message.text}</Text>
+              </div>
             </div>
-          </div>
-        ))}
-      </Card>
-      <div className={styles.inputContainer}>
-        <Input
-          value={inputText}
-          onChange={(e, data) => setInputText(data.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Type your message..."
-          style={{ flexGrow: 1 }}
-        />
-        <Button
-          appearance="primary"
-          icon={<Send24Regular />}
-          onClick={handleSendMessage}
-        >
-          Send
-        </Button>
+          ))}
+        </Card>
+        <div className={styles.inputContainer}>
+          <Input
+            value={inputText}
+            onChange={(e, data) => setInputText(data.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Type your message..."
+            style={{ flexGrow: 1 }}
+          />
+          <Button
+            appearance="primary"
+            icon={<Send24Regular />}
+            onClick={handleSendMessage}
+          >
+            Send
+          </Button>
+        </div>
       </div>
-    </div>
+    </FluentProvider>
   );
 };
 

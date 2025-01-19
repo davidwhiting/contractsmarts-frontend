@@ -5,6 +5,7 @@ import { DocumentChat } from './DocumentChat';
 import { MainMenu } from './MainMenu';
 import { ModelManager } from './ModelManager';
 import { ModelValidate } from './ModelValidate';
+import { ModelAlign } from './ModelAlign';
 import { Support } from './Support';
 
 export const Taskpane = () => {
@@ -36,9 +37,10 @@ export const Taskpane = () => {
   return (
     <FluentProvider theme={webLightTheme}>
       {currentView === 'main' && <MainMenu onNavigate={handleNavigate} />}
-      {currentView === 'documentChat' && <DocumentChat onNavigate={handleNavigate} />}
       {currentView === 'modelManager' && <ModelManager onNavigate={handleNavigate} />}
       {currentView === 'modelValidate' && <ModelValidate onNavigate={handleNavigate} />}
+      {currentView === 'modelAlign' && <ModelAlign onNavigate={handleNavigate} />}
+      {currentView === 'documentChat' && <DocumentChat onNavigate={handleNavigate} />}
       {currentView === 'support' && <Support onNavigate={handleNavigate} />}
     </FluentProvider>
   );

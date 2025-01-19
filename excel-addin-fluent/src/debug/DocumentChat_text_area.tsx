@@ -3,13 +3,12 @@ import {
   FluentProvider,
   webLightTheme,
   Card,
-  Input,
+  Textarea,
   Button,
   makeStyles,
   shorthands,
   tokens,
   Text,
-  Textarea,  // Add this line
 } from '@fluentui/react-components';
 import { Send24Regular } from '@fluentui/react-icons';
 import { NavigationBar } from './NavigationBar';
@@ -113,12 +112,15 @@ export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => voi
         ))}
       </Card>
       <div className={styles.inputContainer}>
-        <Input
+        <TextArea
           value={inputText}
           onChange={(e, data) => setInputText(data.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           placeholder="Type your message..."
           style={{ flexGrow: 1 }}
+          resize="vertical"
+          autoResize
+          maxHeight={150} // approximately 6 lines
         />
         <Button
           appearance="primary"

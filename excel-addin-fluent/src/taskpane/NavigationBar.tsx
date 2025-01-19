@@ -64,14 +64,6 @@ export const NavigationBar = ({ currentView, onNavigate }: NavigationBarProps) =
         </BreadcrumbItem>
       </Breadcrumb>
       <div className={styles.iconButtons}>
-        {currentView !== 'documentChat' && (
-          <Button
-            className={styles.smallButton}
-            icon={<ChatBubblesQuestion24Regular />}
-            appearance="subtle"
-            onClick={() => onNavigate('documentChat')}
-          />
-        )}
         {currentView !== 'modelManager' && (
           <Button
             className={styles.smallButton}
@@ -86,6 +78,22 @@ export const NavigationBar = ({ currentView, onNavigate }: NavigationBarProps) =
             icon={<CheckmarkCircle24Regular />}
             appearance="subtle"
             onClick={() => onNavigate('modelValidate')}
+          />
+        )}
+        {currentView !== 'modelAlign' && (
+          <Button
+            className={styles.smallButton}
+            icon={<CheckmarkCircle24Regular />}
+            appearance="subtle"
+            onClick={() => onNavigate('modelAlign')}
+          />
+        )}        
+        {currentView !== 'documentChat' && (
+          <Button
+            className={styles.smallButton}
+            icon={<ChatBubblesQuestion24Regular />}
+            appearance="subtle"
+            onClick={() => onNavigate('documentChat')}
           />
         )}
         {currentView !== 'support' && (
