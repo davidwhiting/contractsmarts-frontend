@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Task Pane</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a class="active" href="taskpane.html">
+            <img src="../../assets/images/model-validate/modelValidate.svg" alt="Model Validate">
+            <div class="violet">Model Validate</div>
+        </a>
+        <a href="align.html">
+            <img src="../../assets/images/model-align/modelAlign.svg" alt="Model Align">
+            <div class="violet">Model Align</div>
+        </a>
+        <a href="chat.html">
+            <img src="../../assets/images/document-chat/documentChat.svg" alt="Document Chat">
+            <div class="violet">Document Chat</div>
+        </a>
+        <a href="support.html">
+            <img src="../../assets/images/support/Support.svg" alt="Support">
+            <div class="violet">Support</div>
+        </a>
+    </div>
+
+    <h2>Model Validate Results</h2>
+    <textarea id="displayTextArea" rows="5" style="width: 100%;" readonly>
+If you had previously run Model Validate, your results would appear here. 
+
+For the initial processing, you will need to validate a few items before we start.
+
+Press the start validate button to begin.
+    </textarea>
+
+    <a href="startval.html" class="buttons">Start Validate</a>
+
+    <!-- Note: The script tag was missing its closing forward slash -->
+    <script src="taskpane.js"></script>
+</body>
+</html>
