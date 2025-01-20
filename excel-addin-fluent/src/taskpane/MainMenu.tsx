@@ -11,6 +11,7 @@ import {
   AppsListDetail24Regular,
   CheckmarkCircle24Regular,
   QuestionCircle24Regular,
+  Wrench24Regular,
 } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({
@@ -28,6 +29,9 @@ const useStyles = makeStyles({
   buttonIcon: {
     marginRight: '8px',
   },
+  devButton: {
+    marginTop: 'auto', // This will push the dev button to the bottom
+  }
 });
 
 interface MainMenuProps {
@@ -36,6 +40,9 @@ interface MainMenuProps {
 
 export const MainMenu = ({ onNavigate }: MainMenuProps) => {
   const styles = useStyles();
+
+  // Only show developer button in development
+  const isDevelopment = import.meta.env.MODE === 'development';
 
   return (
     <Card className={styles.container}>
@@ -72,6 +79,18 @@ export const MainMenu = ({ onNavigate }: MainMenuProps) => {
       >
         Support
       </Button>
+
+      {isDevelopment && (
+        <Button 
+          className={`${styles.menuButton} ${styles.devButton}`}
+          appearance="subtle"
+          icon={<Wrench24Regular className={styles.buttonIcon} />}
+          onClick={() => onNavigate('developer')}
+        >
+          Developer Tools
+        </Button>
+      )}
+
     </Card>
   );
 };

@@ -7,6 +7,7 @@ import { ModelManager } from './ModelManager';
 import { ModelValidate } from './ModelValidate';
 import { ModelAlign } from './ModelAlign';
 import { Support } from './Support';
+import { DeveloperPanel } from './DeveloperPanel';
 
 export const Taskpane = () => {
   const [isOfficeInitialized, setIsOfficeInitialized] = useState(false);
@@ -42,6 +43,7 @@ export const Taskpane = () => {
       {currentView === 'modelAlign' && <ModelAlign onNavigate={handleNavigate} />}
       {currentView === 'documentChat' && <DocumentChat onNavigate={handleNavigate} />}
       {currentView === 'support' && <Support onNavigate={handleNavigate} />}
+      {currentView === 'developer' && <DeveloperPanel onNavigate={handleNavigate} />}
     </FluentProvider>
   );
 };

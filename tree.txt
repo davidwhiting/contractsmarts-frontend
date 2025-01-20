@@ -1,4 +1,15 @@
 excel-addin-fluent
+├── docs
+│   ├── api
+│   │   ├── client-usage-original.md
+│   │   ├── client-usage.md
+│   │   └── endpoints.md
+│   ├── services
+│   │   └── excel-registration.md
+│   ├── setup
+│   │   ├── configuration.md
+│   │   └── installation.md
+│   └── README.md
 ├── public
 │   ├── assets
 │   │   ├── icon-128.png
@@ -8,9 +19,19 @@ excel-addin-fluent
 │   │   └── icon-80.png
 │   └── vite.svg
 ├── src
+│   ├── api
+│   │   ├── client.ts
+│   │   ├── index.ts
+│   │   └── types.ts
 │   ├── assets
 │   │   └── react.svg
+│   ├── services
+│   │   ├── excel
+│   │   │   ├── index.ts
+│   │   │   └── registration.ts
+│   │   └── index.ts
 │   ├── taskpane
+│   │   ├── DeveloperPanel.tsx
 │   │   ├── DocumentChat.tsx
 │   │   ├── MainMenu.tsx
 │   │   ├── ModelAlign.tsx
@@ -25,6 +46,7 @@ excel-addin-fluent
 │   ├── App.css
 │   ├── index.css
 │   └── vite-env.d.ts
+├── Makefile
 ├── README.md
 ├── eslint.config.js
 ├── index.html
@@ -36,4 +58,4 @@ excel-addin-fluent
 ├── tsconfig.node.json
 └── vite.config.ts
 
-7 directories, 38 files
+15 directories, 56 files
