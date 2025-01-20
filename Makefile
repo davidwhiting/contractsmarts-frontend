@@ -1,3 +1,6 @@
+# Default value for DIR
+DIR ?= excel-addin-fluent
+
 default: dev
 
 dev:
@@ -7,5 +10,4 @@ build:
 	npm run build
 
 tree:
-	mv excel-addin-fluent/node_modules . ; tree --dirsfirst excel-addin-fluent > tree.txt; mv node_modules excel-addin-fluent
-
+        mv $(DIR)/node_modules . ; tree --dirsfirst $(DIR) > tree.txt; mv node_modules $(DIR)
