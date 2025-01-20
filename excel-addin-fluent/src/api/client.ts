@@ -3,7 +3,7 @@ import { ApiResponse, FileRegistration, FileMetadata } from './types';
 /**
  * ContractSmarts API client for interacting with the OCI API Gateway
  */
-export class ContractSmartsApi {
+class ContractSmartsApi {
   private readonly baseUrl: string;
   private readonly version = 'v1';
 
@@ -270,3 +270,5 @@ export class ContractSmartsApi {
     }
   }
 }
+
+export { ContractSmartsApi };

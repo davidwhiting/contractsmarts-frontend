@@ -13,7 +13,11 @@ const useStyles = makeStyles({
   },
 });
 
-export const Support = ({ onNavigate }: { onNavigate: (view: string) => void }) => {
+interface SupportProps {
+  onNavigate: (view: string) => void;
+}
+
+const Support = ({ onNavigate }: SupportProps) => {
   const styles = useStyles();
   return (
     <div className={styles.container}>
@@ -23,4 +27,9 @@ export const Support = ({ onNavigate }: { onNavigate: (view: string) => void }) 
       </Card>
     </div>
   );
+};
+
+export {
+  Support,
+  type SupportProps,
 };

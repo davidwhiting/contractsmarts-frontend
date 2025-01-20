@@ -1,6 +1,7 @@
 // src/taskpane/ModelManager.tsx
 import { Card, Text, makeStyles, shorthands } from '@fluentui/react-components';
 import { NavigationBar } from './NavigationBar';
+import { ModelAlignProps } from './ModelAlign';
 
 const useStyles = makeStyles({
   container: {
@@ -13,7 +14,11 @@ const useStyles = makeStyles({
   },
 });
 
-export const ModelManager = ({ onNavigate }: { onNavigate: (view: string) => void }) => {
+interface ModelManagerProps {
+  onNavigate: (view: string) => void;
+}
+
+const ModelManager = ({ onNavigate }: ModelManagerProps) => {
   const styles = useStyles();
   return (
     <div className={styles.container}>
@@ -25,3 +30,7 @@ export const ModelManager = ({ onNavigate }: { onNavigate: (view: string) => voi
   );
 };
 
+export {
+  ModelManager,
+  type ModelManagerProps,
+}

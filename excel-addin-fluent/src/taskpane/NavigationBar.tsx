@@ -38,12 +38,13 @@ interface NavigationBarProps {
   onNavigate: (view: string) => void;
 }
 
-export const NavigationBar = ({ currentView, onNavigate }: NavigationBarProps) => {
+const NavigationBar = ({ currentView, onNavigate }: NavigationBarProps) => {
   const styles = useStyles();
 
   const viewNames: Record<string, string> = {
     documentChat: 'Document Chat',
     modelManager: 'Model Manager',
+    modelAlign: 'Model Align',
     modelValidate: 'Model Validate',
     support: 'Support',
   };
@@ -107,4 +108,9 @@ export const NavigationBar = ({ currentView, onNavigate }: NavigationBarProps) =
       </div>
     </div>
   );
+};
+
+export {
+  NavigationBar,
+  type NavigationBarProps,
 };

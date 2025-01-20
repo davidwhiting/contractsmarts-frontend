@@ -1,4 +1,4 @@
-export interface ApiResponse<T> {
+interface ApiResponse<T> {
   success: boolean;
   data?: T;
   error?: {
@@ -8,14 +8,14 @@ export interface ApiResponse<T> {
   };
 }
 
-export interface FileRegistration {
+interface FileRegistration {
   excelUuid: string;
   userUuid: string;
   registrationDate: string;
   status: 'active' | 'deregistered';
 }
 
-export interface FileMetadata {
+interface FileMetadata {
   excelUuid: string;
   userUuid: string;
   metadata: Record<string, unknown>;
@@ -23,3 +23,5 @@ export interface FileMetadata {
   updatedAt?: string;
   version: string;
 }
+
+export { ApiResponse, FileRegistration, FileMetadata };

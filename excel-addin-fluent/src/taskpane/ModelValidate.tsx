@@ -13,7 +13,11 @@ const useStyles = makeStyles({
   },
 });
 
-export const ModelValidate = ({ onNavigate }: { onNavigate: (view: string) => void }) => {
+interface ModelValidateProps {
+  onNavigate: (view: string) => void;
+}
+
+const ModelValidate = ({ onNavigate }: ModelValidateProps) => {
   const styles = useStyles();
   return (
     <div className={styles.container}>
@@ -23,4 +27,9 @@ export const ModelValidate = ({ onNavigate }: { onNavigate: (view: string) => vo
       </Card>
     </div>
   );
+};
+
+export {
+  ModelValidate,
+  type ModelValidateProps,
 };

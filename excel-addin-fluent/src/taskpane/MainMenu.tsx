@@ -38,7 +38,7 @@ interface MainMenuProps {
   onNavigate: (view: string) => void;
 }
 
-export const MainMenu = ({ onNavigate }: MainMenuProps) => {
+const MainMenu = ({ onNavigate }: MainMenuProps) => {
   const styles = useStyles();
 
   // Only show developer button in development
@@ -93,4 +93,9 @@ export const MainMenu = ({ onNavigate }: MainMenuProps) => {
 
     </Card>
   );
+};
+
+export {
+  MainMenu,
+  type MainMenuProps,
 };

@@ -13,7 +13,11 @@ const useStyles = makeStyles({
   },
 });
 
-export const ModelAlign = ({ onNavigate }: { onNavigate: (view: string) => void }) => {
+interface ModelAlignProps {
+  onNavigate: (view: string) => void;
+}
+
+const ModelAlign = ({ onNavigate }: ModelAlignProps) => {
   const styles = useStyles();
   return (
     <div className={styles.container}>
@@ -25,3 +29,7 @@ export const ModelAlign = ({ onNavigate }: { onNavigate: (view: string) => void 
   );
 };
 
+export {
+  ModelAlign,
+  type ModelAlignProps,
+};

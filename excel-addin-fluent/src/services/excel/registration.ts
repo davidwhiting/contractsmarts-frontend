@@ -7,6 +7,16 @@ interface FileMetadata {
   version: string;
 }
 
+class AlreadyRegisteredError extends Error {
+  readonly existingUuid: string;
+
+  constructor(uuid: string) {
+    super('File is already registered');
+    this.name = 'AlreadyRegisteredError';
+    this.existingUuid = uuid;
+  }
+}
+
 /**
  * XML Parser utility class to safely parse and create XML
  */
@@ -89,7 +99,7 @@ class XmlHelper {
 /**
  * Main class for Excel file registration and metadata management
  */
-export class ExcelFileRegistration {
+class ExcelFileRegistration {
   private static readonly UUID_PROPERTY = 'ContractSmarts_UUID';
   private static readonly METADATA_XML_NAMESPACE = 'http://www.contractsmarts.ai/metadata';
   
@@ -102,7 +112,7 @@ export class ExcelFileRegistration {
         // First check if file is already registered
         const existingUuid = await this.getFileUuid(context);
         if (existingUuid) {
-          throw new Error('File is already registered');
+          throw new AlreadyRegisteredError(existingUuid);
         }
 
         // Generate new UUID
@@ -126,6 +136,10 @@ export class ExcelFileRegistration {
         return metadata;
       });
     } catch (error) {
+      if (error instanceof AlreadyRegisteredError) {
+        // Re-throw our custom error with UUID
+        throw error;
+      }
       console.error('Error registering file:', error);
       throw this.wrapError(error);
     }
@@ -298,3 +312,5 @@ export class ExcelFileRegistration {
     return new Error(`Excel File Registration Error: ${String(error)}`);
   }
 }
+
+export { AlreadyRegisteredError, ExcelFileRegistration };
