@@ -42,6 +42,7 @@
           <ExtensionPoint xsi:type="TaskPaneApp">
             <SourceLocation resid="Taskpane.Url"/>
             <Runtime resid="Taskpane.Url"/>
+            <Visibility>StartVisible</Visibility>
           </ExtensionPoint>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <OfficeTab id="TabHome">
