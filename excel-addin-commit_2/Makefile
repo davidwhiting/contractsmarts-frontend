@@ -14,6 +14,10 @@ start:
 stop:
 	npm run stop
 
+# clear office cache
+clear:
+	rm -rf ~/Library/Containers/com.microsoft.Excel/Data/Library/Caches/*
+
 # install development certificates (do only once)
 certs:
 	npm run dev-certs
