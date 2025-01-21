@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Define the PREFIX
+PREFIX=/Users/david/ContractSmarts/code/contractsmarts-frontend/
+
+# Check if the PREFIX path and virtual environment exist
+if [ ! -d "${PREFIX}/.venv" ]; then
+    echo "Error: Virtual environment not found in ${PREFIX}/.venv"
+    exit 1
+fi
+
+# Temporarily navigate to the PREFIX directory
+pushd "${PREFIX}" > /dev/null || { echo "Error: Failed to navigate to ${PREFIX}"; exit 1; }
+
+# Activate the virtual environment
+source .venv/bin/activate
+
+# Run the Python script with any passed arguments
+python bin/oci_upload.py "$@"
+
+# Return to the original directory
+popd > /dev/null
