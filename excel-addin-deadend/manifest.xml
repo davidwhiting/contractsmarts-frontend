@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp 
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" 
+  xsi:type="TaskPaneApp">
+  
+  <!-- Basic info remains the same -->
+  <Id>4228D1D1-D6D6-4509-89B1-2CD42B3C5D04</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>ContractSmarts</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="ContractSmarts"/>
+  <Description DefaultValue="ContractSmarts Add-in"/>
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
+  <SupportUrl DefaultValue="https://www.contractsmarts.ai/help"/>
+  <AppDomains>
+    <AppDomain>contractsmarts.ai</AppDomain>
+    <AppDomain>api.contractsmarts.ai</AppDomain>
+    <AppDomain>www.contractsmarts.ai</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3000/src/taskpane/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title"/>
+            <Description resid="GetStarted.Description"/>
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+          <FunctionFile resid="Taskpane.Url"/>
+          <ExtensionPoint xsi:type="TaskPaneApp">
+            <SourceLocation resid="Taskpane.Url"/>
+            <Runtime resid="Taskpane.Url"/>
+            <Visibility>StartVisible</Visibility>
+          </ExtensionPoint>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="ContractSmartsGroup">
+                <Label resid="ContractSmartsGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16"/>
+                  <bt:Image size="32" resid="Icon.32x32"/>
+                  <bt:Image size="80" resid="Icon.80x80"/>
+                </Icon>
+                <Control xsi:type="Menu" id="ContractSmartsMenu">
+                  <Label resid="ContractSmartsMenu.Label"/>
+                  <Supertip>
+                    <Title resid="ContractSmartsMenu.Label"/>
+                    <Description resid="ContractSmartsMenu.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Items>
+                    <Item id="DocumentChatItem">
+                      <Label resid="DocumentChatButton.Label"/>
+                      <Supertip>
+                        <Title resid="DocumentChatButton.Label"/>
+                        <Description resid="DocumentChatButton.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="Chat.16x16"/>
+                        <bt:Image size="32" resid="Chat.32x32"/>
+                        <bt:Image size="80" resid="Chat.80x80"/>
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>DocumentChatPane</TaskpaneId>
+                        <SourceLocation resid="Taskpane.Url"/>
+                        <Title resid="DocumentChatButton.Label"/>
+                      </Action>
+                    </Item>
+                    <Item id="ModelManagerItem">
+                      <Label resid="ModelManagerButton.Label"/>
+                      <Supertip>
+                        <Title resid="ModelManagerButton.Label"/>
+                        <Description resid="ModelManagerButton.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="Model.16x16"/>
+                        <bt:Image size="32" resid="Model.32x32"/>
+                        <bt:Image size="80" resid="Model.80x80"/>
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ModelManagerPane</TaskpaneId>
+                        <SourceLocation resid="Taskpane.Url"/>
+                        <Title resid="ModelManagerButton.Label"/>
+                      </Action>
+                    </Item>
+                    <Item id="ModelValidateItem">
+                      <Label resid="ModelValidateButton.Label"/>
+                      <Supertip>
+                        <Title resid="ModelValidateButton.Label"/>
+                        <Description resid="ModelValidateButton.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="Validate.16x16"/>
+                        <bt:Image size="32" resid="Validate.32x32"/>
+                        <bt:Image size="80" resid="Validate.80x80"/>
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ModelValidatePane</TaskpaneId>
+                        <SourceLocation resid="Taskpane.Url"/>
+                        <Title resid="ModelValidateButton.Label"/>
+                      </Action>
+                    </Item>
+                    <Item id="SupportItem">
+                      <Label resid="SupportButton.Label"/>
+                      <Supertip>
+                        <Title resid="SupportButton.Label"/>
+                        <Description resid="SupportButton.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="Support.16x16"/>
+                        <bt:Image size="32" resid="Support.32x32"/>
+                        <bt:Image size="80" resid="Support.80x80"/>
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>SupportPane</TaskpaneId>
+                        <SourceLocation resid="Taskpane.Url"/>
+                        <Title resid="SupportButton.Label"/>
+                      </Action>
+                    </Item>
+                  </Items>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <!-- Main icon -->
+        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <!-- Chat icon -->
+        <bt:Image id="Chat.16x16" DefaultValue="https://localhost:3000/assets/chat-16.png"/>
+        <bt:Image id="Chat.32x32" DefaultValue="https://localhost:3000/assets/chat-32.png"/>
+        <bt:Image id="Chat.80x80" DefaultValue="https://localhost:3000/assets/chat-80.png"/>
+        <!-- Model icon -->
+        <bt:Image id="Model.16x16" DefaultValue="https://localhost:3000/assets/model-16.png"/>
+        <bt:Image id="Model.32x32" DefaultValue="https://localhost:3000/assets/model-32.png"/>
+        <bt:Image id="Model.80x80" DefaultValue="https://localhost:3000/assets/model-80.png"/>
+        <!-- Validate icon -->
+        <bt:Image id="Validate.16x16" DefaultValue="https://localhost:3000/assets/validate-16.png"/>
+        <bt:Image id="Validate.32x32" DefaultValue="https://localhost:3000/assets/validate-32.png"/>
+        <bt:Image id="Validate.80x80" DefaultValue="https://localhost:3000/assets/validate-80.png"/>
+        <!-- Support icon -->
+        <bt:Image id="Support.16x16" DefaultValue="https://localhost:3000/assets/support-16.png"/>
+        <bt:Image id="Support.32x32" DefaultValue="https://localhost:3000/assets/support-32.png"/>
+        <bt:Image id="Support.80x80" DefaultValue="https://localhost:3000/assets/support-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/src/taskpane/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="Get started with ContractSmarts!"/>
+        <bt:String id="ContractSmartsGroup.Label" DefaultValue="ContractSmarts"/>
+        <bt:String id="ContractSmartsMenu.Label" DefaultValue="ContractSmarts"/>
+        <bt:String id="DocumentChatButton.Label" DefaultValue="Document Chat"/>
+        <bt:String id="ModelManagerButton.Label" DefaultValue="Model Manager"/>
+        <bt:String id="ModelValidateButton.Label" DefaultValue="Model Validate"/>
+        <bt:String id="SupportButton.Label" DefaultValue="Support"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description" DefaultValue="Your add-in loaded successfully. Go to the HOME tab to get started."/>
+        <bt:String id="ContractSmartsMenu.Tooltip" DefaultValue="Access ContractSmarts features"/>
+        <bt:String id="DocumentChatButton.Tooltip" DefaultValue="Chat with your documents"/>
+        <bt:String id="ModelManagerButton.Tooltip" DefaultValue="Manage your models"/>
+        <bt:String id="ModelValidateButton.Tooltip" DefaultValue="Validate your models"/>
+        <bt:String id="SupportButton.Tooltip" DefaultValue="Get help and support"/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
