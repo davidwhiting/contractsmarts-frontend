@@ -17,7 +17,9 @@
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
   <SupportUrl DefaultValue="https://www.contractsmarts.ai/help"/>
   <AppDomains>
-    <AppDomain>https://www.contractsmarts.ai</AppDomain>
+    <AppDomain>contractsmarts.ai</AppDomain>
+    <AppDomain>api.contractsmarts.ai</AppDomain>
+    <AppDomain>www.contractsmarts.ai</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>
@@ -36,6 +38,11 @@
             <Description resid="GetStarted.Description"/>
             <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
           </GetStarted>
+          <FunctionFile resid="Taskpane.Url"/>
+          <ExtensionPoint xsi:type="TaskPaneApp">
+            <SourceLocation resid="Taskpane.Url"/>
+            <Runtime resid="Taskpane.Url"/>
+          </ExtensionPoint>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <OfficeTab id="TabHome">
               <Group id="ContractSmartsGroup">
