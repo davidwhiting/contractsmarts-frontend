@@ -1,3 +1,4 @@
+// src/taskpane/DocumentChat.tsx
 import { useState } from 'react';
 import {
   FluentProvider,
@@ -9,10 +10,12 @@ import {
   shorthands,
   tokens,
   Text,
-  Textarea,  // Add this line
+  Textarea,
 } from '@fluentui/react-components';
 import { Send24Regular } from '@fluentui/react-icons';
 import { NavigationBar } from './NavigationBar';
+import documentChatIcon from '../assets/document-chat/documentChat-48.png';
+
 
 const useStyles = makeStyles({
   container: {
@@ -61,7 +64,7 @@ interface Message {
   sender: 'user' | 'bot';
 }
 
-export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => void }) => {
+const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => void }) => {
   const styles = useStyles();
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
@@ -122,7 +125,8 @@ export const DocumentChat = ({ onNavigate }: { onNavigate: (view: string) => voi
         />
         <Button
           appearance="primary"
-          icon={<Send24Regular />}
+          icon={<img src={documentChatIcon} alt="Send Icon" style={{ width: '24px', height: '24px' }} />}
+          //icon={<Send24Regular />}
           onClick={handleSendMessage}
         >
           Send

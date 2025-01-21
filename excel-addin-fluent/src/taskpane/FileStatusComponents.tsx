@@ -79,6 +79,19 @@ const FileStatusIndicator: React.FC<FileStatusIndicatorProps> = ({
   onTrack, 
   onIgnore 
 }) => {
+  const handleTrack = async () => {
+    console.log('Track button clicked');
+    Office.context.document.settings.set("debug_log", "Track button clicked");
+    await Office.context.document.settings.saveAsync();
+    onTrack();
+  };
+
+  const handleIgnore = async () => {
+    console.log('Ignore button clicked');
+    Office.context.document.settings.set("debug_log", "Ignore button clicked");
+    await Office.context.document.settings.saveAsync();
+    onIgnore();
+  };  
     const styles = useStyles();
   
     const getStatusStyle = () => {
@@ -108,15 +121,15 @@ const FileStatusIndicator: React.FC<FileStatusIndicatorProps> = ({
         <MenuList>
           {status === 'untracked' && (
             <>
-              <MenuItem onClick={onTrack}>Track File</MenuItem>
-              <MenuItem onClick={onIgnore}>Ignore File</MenuItem>
+              <MenuItem onClick={handleTrack}>Track File</MenuItem>
+              <MenuItem onClick={handleIgnore}>Ignore File</MenuItem>
             </>
           )}
           {status === 'tracked' && (
-            <MenuItem onClick={onIgnore}>Ignore File</MenuItem>
+            <MenuItem onClick={handleIgnore}>Ignore File</MenuItem>
           )}
           {status === 'ignored' && (
-            <MenuItem onClick={onTrack}>Track File</MenuItem>
+            <MenuItem onClick={handleTrack}>Track File</MenuItem>
           )}
         </MenuList>
       </MenuPopover>
